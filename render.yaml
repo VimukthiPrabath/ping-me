@@ -32,4 +32,3 @@ services:
 databases:
   - name: pingme-redis
     plan: free
-    ipAllowList: []
