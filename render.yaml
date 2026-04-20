@@ -1,5 +1,5 @@
 services:
-  # 1. Next.js Dashboard (Frontend)
+  # Next.js Dashboard
   - type: web
     name: pingme-dashboard
     env: docker
@@ -13,7 +13,7 @@ services:
           type: redis
           property: connectionString
 
-  # 2. Python Ping Worker (Backend)
+  # Python Worker
   - type: worker
     name: pingme-worker
     env: docker
@@ -22,7 +22,7 @@ services:
     dockerfilePath: worker/Dockerfile
     envVars:
       - key: TELEGRAM_BOT_TOKEN
-        sync: false # මේක අපි Blueprint එක රන් කරද්දී දෙමු
+        sync: false
       - key: TELEGRAM_CHAT_ID
         sync: false
       - key: REDIS_URL
@@ -31,7 +31,7 @@ services:
           type: redis
           property: connectionString
 
-# 3. Render Redis Database
+# Redis Database
 databases:
   - name: pingme-redis
     plan: free
