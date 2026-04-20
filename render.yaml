@@ -5,7 +5,7 @@ services:
     env: docker
     plan: free
     dockerContext: .
-    dockerfilePath: Dockerfile # ඔයාගේ Next.js Dockerfile එකේ නම
+    dockerfilePath: Dockerfile 
     envVars:
       - key: REDIS_URL
         fromService:
@@ -19,12 +19,12 @@ services:
     env: docker
     plan: free
     dockerContext: .
-    dockerfilePath: worker/Dockerfile # Python worker එකේ Dockerfile එක
+    dockerfilePath: worker/Dockerfile 
     envVars:
       - key: TELEGRAM_BOT_TOKEN
-        value: "ඔයාගේ_TOKEN_එක"
+        value: "8725301793:AAFqG8jDJLjolv9-Kn6KEkoqySxb10Z0oyM"
       - key: TELEGRAM_CHAT_ID
-        value: "ඔයාගේ_CHAT_ID_එක"
+        value: "1336678820"
       - key: REDIS_URL
         fromService:
           name: pingme-redis
@@ -35,4 +35,4 @@ services:
 databases:
   - name: pingme-redis
     plan: free
-    ipAllowList: [] # Render ඇතුළේ විතරක් කනෙක්ට් වෙන්න
+    ipAllowList: [] 

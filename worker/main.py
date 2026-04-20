@@ -2,6 +2,10 @@ import time
 import redis
 import requests
 import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 r = redis.Redis(host='redis', port=6379, decode_responses=True)
 
@@ -31,7 +35,7 @@ WEBSITES = [
     {"name": "Test-Site", "url": "http://test.com"}
 ]
 
-INTERVAL = 300 
+INTERVAL = 600 
 
 print(f"🚀 PingMe Worker Started! Checking every {INTERVAL} seconds...", flush=True)
 
