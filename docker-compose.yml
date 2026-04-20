@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  # 1. අපේ මතකය (Database එක)
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  # 2. අපේ කම්කරුවා (Python Script එක - හෙට ලියන එක)
+  worker:
+    build: ./worker
+    depends_on:
+      - redis
+
+  # 3. අපේ ලස්සන UI එක (Next.js - දැන් හැදුව එක)
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
