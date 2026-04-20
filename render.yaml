@@ -1,11 +1,11 @@
 services:
-  # Next.js Frontend
+  # 1. Next.js Dashboard (Frontend)
   - type: web
-    name: pingme-frontend
+    name: pingme-dashboard
     env: docker
     plan: free
     dockerContext: .
-    dockerfilePath: Dockerfile 
+    dockerfilePath: Dockerfile
     envVars:
       - key: REDIS_URL
         fromService:
@@ -13,26 +13,26 @@ services:
           type: redis
           property: connectionString
 
-  # Python Worker
+  # 2. Python Ping Worker (Backend)
   - type: worker
     name: pingme-worker
     env: docker
     plan: free
     dockerContext: .
-    dockerfilePath: worker/Dockerfile 
+    dockerfilePath: worker/Dockerfile
     envVars:
       - key: TELEGRAM_BOT_TOKEN
-        value: "8725301793:AAFqG8jDJLjolv9-Kn6KEkoqySxb10Z0oyM"
+        sync: false # මේක අපි Blueprint එක රන් කරද්දී දෙමු
       - key: TELEGRAM_CHAT_ID
-        value: "1336678820"
+        sync: false
       - key: REDIS_URL
         fromService:
           name: pingme-redis
           type: redis
           property: connectionString
 
-# Redis Database
+# 3. Render Redis Database
 databases:
   - name: pingme-redis
     plan: free
-    ipAllowList: [] 
+    ipAllowList: []
