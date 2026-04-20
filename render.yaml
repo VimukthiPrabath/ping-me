@@ -7,10 +7,7 @@ services:
     dockerfilePath: Dockerfile
     envVars:
       - key: REDIS_URL
-        fromService:
-          name: pingme-redis
-          type: redis
-          property: connectionString
+        sync: false
 
   - type: worker
     name: pingme-worker
@@ -24,10 +21,7 @@ services:
       - key: TELEGRAM_CHAT_ID
         sync: false
       - key: REDIS_URL
-        fromService:
-          name: pingme-redis
-          type: redis
-          property: connectionString
+        sync: false
 
 databases:
   - name: pingme-redis
