@@ -6,8 +6,8 @@ import json
 r = redis.Redis(host='redis', port=6379, decode_responses=True)
 
 # --- TELEGRAM CONFIG ---
-BOT_TOKEN = "8725301793:AAFqG8jDJLjolv9-Kn6KEkoqySxb10Z0oyM" 
-CHAT_ID = "1336678820"  
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 def send_telegram_alert(site_name, url):
     message = f"🚨 ALERT: {site_name} ({url}) is DOWN! 😱"
@@ -31,7 +31,7 @@ WEBSITES = [
     {"name": "Test-Site", "url": "http://test.com"}
 ]
 
-INTERVAL = 240 
+INTERVAL = 300 
 
 print(f"🚀 PingMe Worker Started! Checking every {INTERVAL} seconds...", flush=True)
 
