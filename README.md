@@ -58,7 +58,7 @@ The system utilizes a microservices approach to ensure scalability and reliabili
 <img width="1899" height="1017" alt="image" src="https://github.com/user-attachments/assets/e8938431-aa7f-4442-a166-34fe4593d312" />
 
 Alert Preview
-<img width="535" height="953" alt="image" src="https://github.com/user-attachments/assets/18d3ed25-fea4-45ad-94d9-f093f484f406" /> <img width="489" height="1076" alt="image" src="https://github.com/user-attachments/assets/da52cc72-2822-4b4e-a8c8-7ef16230ae29" />
+<img width="1905" height="1021" alt="image" src="https://github.com/user-attachments/assets/eab9d83b-87f3-4a32-9309-1a936f5db15f" /> <img width="1910" height="1025" alt="image" src="https://github.com/user-attachments/assets/e93a612a-84e4-40ce-8b48-7a061210950d" />
 
 
 
