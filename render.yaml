@@ -1,0 +1,38 @@
+services:
+  # Next.js Frontend
+  - type: web
+    name: pingme-frontend
+    env: docker
+    plan: free
+    dockerContext: .
+    dockerfilePath: Dockerfile # ඔයාගේ Next.js Dockerfile එකේ නම
+    envVars:
+      - key: REDIS_URL
+        fromService:
+          name: pingme-redis
+          type: redis
+          property: connectionString
+
+  # Python Worker
+  - type: worker
+    name: pingme-worker
+    env: docker
+    plan: free
+    dockerContext: .
+    dockerfilePath: worker/Dockerfile # Python worker එකේ Dockerfile එක
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        value: "ඔයාගේ_TOKEN_එක"
+      - key: TELEGRAM_CHAT_ID
+        value: "ඔයාගේ_CHAT_ID_එක"
+      - key: REDIS_URL
+        fromService:
+          name: pingme-redis
+          type: redis
+          property: connectionString
+
+# Redis Database
+databases:
+  - name: pingme-redis
+    plan: free
+    ipAllowList: [] # Render ඇතුළේ විතරක් කනෙක්ට් වෙන්න

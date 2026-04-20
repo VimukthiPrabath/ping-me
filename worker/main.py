@@ -25,7 +25,7 @@ send_telegram_alert("Test-Site", "http://test.com")
 
 # --- MONITORING CONFIG ---
 WEBSITES = [
-    {"name": "Google", "url": "https://www.google.com"},
+    
     {"name": "GitHub", "url": "https://github.com"},
     {"name": "My Portfolio", "url": "https://vimukthiprabath.github.io/Portfolio/"},
     {"name": "Test-Site", "url": "http://test.com"}
